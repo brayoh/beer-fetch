@@ -1,18 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { View } from 'react-native';
-import {
-  Container,
-  Header,
-  Left,
-  Body,
-  Center,
-  Right,
-  Button,
-  Icon,
-  Title,
-  Form,
-  Picker
-} from 'native-base';
+import { Header, Left, Body, Right, Button, Icon, Title, Form, Picker } from 'native-base';
 
 // screens
 import AllBeersScreen from '../screens/AllBeersScreen';
