@@ -10,7 +10,7 @@ import ContainedImage from '../Image/ContainedImage';
 
 const CardContainer = glamorous.view((props, theme) => ({
   position: 'relative',
-  height: 153,
+  height: 160,
   width: '85%',
   left: '7.5%',
   justifyContent: 'space-around'
@@ -27,14 +27,16 @@ const BeerNameContainer = glamorous.view((props, theme) => ({
   justifyContent: 'center'
 }));
 
-const BeerPreviewCard = () => {
+const BeerPreviewCard = ({ name, imageUrl }) => {
   return (
     <CardContainer style={{ justifyContent: 'space-around' }}>
       <CardImageContainer>
-        <ContainedImage source={{ uri: 'http://pngimg.com/uploads/beer/beer_PNG2390.png' }} />
+        <ContainedImage source={{ uri: imageUrl }} />
       </CardImageContainer>
       <BeerNameContainer>
-        <Title align="center">Heineken</Title>
+        <Title align="center" color={colors.white}>
+          {name}
+        </Title>
       </BeerNameContainer>
     </CardContainer>
   );

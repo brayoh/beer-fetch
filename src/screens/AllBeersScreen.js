@@ -1,19 +1,41 @@
-import React, { Component, Fragment } from 'react';
-import { Dimensions, View, ScrollView } from 'react-native';
-import { Col, Row, Grid } from 'react-native-easy-grid';
+import React, { Component } from 'react';
+import { Dimensions, View, ScrollView, TextInput, TouchableHighlight } from 'react-native';
+import { Col, Grid } from 'react-native-easy-grid';
 
-// components
-import BeerPreviewCard from '../components/BeerPreviewCard';
+// presentational components
 import ContainedImage from '../components/Image/ContainedImage';
+import BeerPreviewCard from '../components/BeerPreviewCard';
+
+// axios service
+import axiosService from '../utils/lib/axiosService';
 
 export default class AllBeersScreen extends Component {
+  state = {
+    allBeers: []
+  };
+
+  componentDidMount() {
+    axiosService
+      .request({
+        url: '/beers',
+        method: 'GET'
+      })
+      .then(response => {
+        this.setState({
+          allBeers: response.data
+        });
+      });
+  }
+
   render() {
-    var { height, width } = Dimensions.get('window');
-    console.log('height, width', height / 4, width);
+    const { height } = Dimensions.get('window');
+    const { allBeers } = this.state;
+    const { navigate } = this.props.navigation;
+
     return (
       <ScrollView>
         <Grid>
-          <View style={{ height: height * 0.33, width: '100%' }}>
+          <View style={{ position: 'relative', height: height * 0.33, width: '100%' }}>
             <ContainedImage
               resizeMode="cover"
               source={require('../images/header_background.jpg')}
@@ -30,11 +52,18 @@ export default class AllBeersScreen extends Component {
             marginTop: 10
           }}
         >
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map((item, key) => (
-            <Col key={key} style={{ position: 'relative', width: '50%', marginTop: 25 }}>
-              <BeerPreviewCard />
-            </Col>
-          ))}
+          {allBeers.map(beer => {
+            const { name, image_url } = beer;
+            return (
+              <Col key={beer.id} style={{ position: 'relative', width: '50%', marginTop: 25 }}>
+                <TouchableHighlight
+                  onPress={() => navigate('SingleBeerScreen', { name: beer.name, data: beer })}
+                >
+                  <BeerPreviewCard name={name} imageUrl={image_url} />
+                </TouchableHighlight>
+              </Col>
+            );
+          })}
         </View>
       </ScrollView>
     );

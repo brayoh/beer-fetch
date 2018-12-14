@@ -14,12 +14,15 @@ import {
   Text
 } from 'native-base';
 
+// theme colors
+import { colors } from '../config/theme';
+
 export default class AppDrawerMenu extends Component {
   state = {
     selected: 'key1'
   };
 
-  _onValueChange = (value: string) => {
+  _onValueChange = value => {
     this.setState({ selected: value });
   };
 
@@ -28,7 +31,6 @@ export default class AppDrawerMenu extends Component {
   };
 
   _handleOpenDrawer = () => {
-    console.log('clicked', this.drawer);
     this.drawer._root.open();
   };
 
@@ -61,7 +63,7 @@ export default class AppDrawerMenu extends Component {
                 <Picker
                   note
                   mode="dropdown"
-                  style={{ width: 120, color: '#ffffff' }}
+                  style={{ width: 120, color: colors.white }}
                   selectedValue={this.state.selected}
                   onValueChange={this._onValueChange}
                 >
