@@ -2,7 +2,7 @@
 
 import { AppRegistry } from 'react-native';
 
- // app routes
+// app routes
 import AppRouter from './src/navigation/Router';
 
 import { name as appName } from './app.json';
