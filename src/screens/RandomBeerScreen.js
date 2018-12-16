@@ -6,10 +6,9 @@ import axiosService from '../utils/lib/axiosService';
 import SingleBeerScreen from './SingleBeerScreen';
 
 export default class RandomBeerScreen extends Component {
-  static navigationOptions = ({ navigation }) => ({
-    title: 'fetching random beer....',
+  static navigationOptions = {
     drawerLabel: 'Random Beer'
-  });
+  };
 
   state = {
     randomBeer: [],
@@ -19,10 +18,6 @@ export default class RandomBeerScreen extends Component {
   componentDidMount() {
     this._fetchRandomBeer();
   }
-
-  _changeTitle = titleText => {
-    this.props.navigation.setParams({ title: titleText });
-  };
 
   _fetchRandomBeer = () => {
     axiosService
@@ -36,8 +31,6 @@ export default class RandomBeerScreen extends Component {
           beerId: response.data[0].id,
           loading: false
         });
-
-        this._changeTitle(response.data[0].name);
       })
       .catch(err => console.log(err));
   };
