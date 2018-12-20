@@ -6,6 +6,9 @@ import AllBeersScreen from '../screens/AllBeersScreen';
 
 import SingleBeerScreen from '../screens/SingleBeerScreen';
 
+// theme colors
+import { colors } from '../config/theme';
+
 const AppRouter = createStackNavigator(
   {
     Home: {
@@ -17,7 +20,16 @@ const AppRouter = createStackNavigator(
     SingleBeerScreen: SingleBeerScreen
   },
   {
-    initialRouteName: 'Home'
+    initialRouteName: 'Home',
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: colors.french_blue
+      },
+      headerTintColor: colors.white,
+      headerTitleStyle: {
+        fontWeight: 'normal'
+      }
+    }
   }
 );
 
