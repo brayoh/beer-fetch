@@ -29,7 +29,11 @@ const TextBody = glamorous.view((props, theme) => ({
 
 const CardWithTitle = props => {
   const renderContent =
-    props.contentContainer === 'text' ? <Text>{props.content}</Text> : <View>{props.content}</View>;
+    props.contentContainer === 'text' ? (
+      <Text>{props.content}</Text>
+    ) : (
+      <View>{props.content}</View>
+    );
   return (
     <CardContainer>
       <WrappedTitle>{props.title}</WrappedTitle>

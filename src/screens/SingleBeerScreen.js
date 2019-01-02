@@ -11,8 +11,13 @@ import Divider from '../components/Divider';
 
 export default class SingleBeerScreen extends Component {
   static navigationOptions = ({ navigation }) => ({
-    title: navigation.getParam('name')
+    title: navigation.getParam('name', 'single beer screen')
   });
+
+  _changeTitle = titleText => {
+    const { setParams } = this.props.navigation;
+    setParams({ title: titleText });
+  };
 
   _renderIngredientItems = ingredientItems => {
     const items = [];
@@ -21,7 +26,7 @@ export default class SingleBeerScreen extends Component {
       ingredientItems.map((item, key) => {
         if (typeof item === 'object') {
           items.push(
-            <View style={{ lineHeight: 24, padding: 2 }}>
+            <View key={key} style={{ lineHeight: 24, padding: 2 }}>
               <Text
                 align="left"
                 style={{
@@ -82,7 +87,8 @@ export default class SingleBeerScreen extends Component {
 
   render() {
     const { height } = Dimensions.get('window');
-    const beerData = this.props.navigation.getParam('data');
+    const beerData =
+      this.props.navigation.getParam('data') || this.props.beerData;
     const {
       name,
       image_url,
@@ -99,8 +105,18 @@ export default class SingleBeerScreen extends Component {
     return (
       <ScrollView>
         <Grid>
-          <View style={{ position: 'relative', top: 10, height: height * 0.33, width: '100%' }}>
-            <ContainedImage source={{ uri: image_url }} style={{ height: '100%', width: '100%' }} />
+          <View
+            style={{
+              position: 'relative',
+              top: 10,
+              height: height * 0.33,
+              width: '100%'
+            }}
+          >
+            <ContainedImage
+              source={{ uri: image_url }}
+              style={{ height: '100%', width: '100%' }}
+            />
           </View>
         </Grid>
         <View
@@ -114,7 +130,11 @@ export default class SingleBeerScreen extends Component {
             <WrappedTitle>{name}</WrappedTitle>
           </View>
           <View style={{ marginTop: 50 }}>
-            <CardWithTitle title="Description" content={description} contentContainer="text" />
+            <CardWithTitle
+              title="Description"
+              content={description}
+              contentContainer="text"
+            />
           </View>
           <View
             style={{
@@ -145,7 +165,11 @@ export default class SingleBeerScreen extends Component {
             />
           </View>
           <View style={{ marginTop: 50, marginBottom: 50 }}>
-            <CardWithTitle title="Brewers Tips" content={brewers_tips} contentContainer="text" />
+            <CardWithTitle
+              title="Brewers Tips"
+              content={brewers_tips}
+              contentContainer="text"
+            />
           </View>
         </View>
       </ScrollView>
