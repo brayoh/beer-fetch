@@ -1,15 +1,23 @@
 import React from 'react';
-import { createStackNavigator, createAppContainer } from 'react-navigation';
+import { StyleSheet, ScrollView } from 'react-native';
+import {
+  createStackNavigator,
+  createDrawerNavigator,
+  createAppContainer,
+  DrawerItems,
+  SafeAreaView
+} from 'react-navigation';
 
 import AppDrawerMenu from './AppDrawerMenu';
 import AllBeersScreen from '../screens/AllBeersScreen';
 import SingleBeerScreen from '../screens/SingleBeerScreen';
 import RandomBeerScreen from '../screens/RandomBeerScreen';
+import SideBar from './SideBar';
 
 // theme colors
 import { colors } from '../config/theme';
 
-const AppRouter = createStackNavigator(
+const AppRouter = createDrawerNavigator(
   {
     Home: {
       path: '/',
@@ -39,8 +47,38 @@ const AppRouter = createStackNavigator(
       headerTitleStyle: {
         fontWeight: 'normal'
       }
-    }
+    },
+    contentComponent: props => <CustomDrawerContentComponent {...props} />
   }
 );
 
-export default createAppContainer(AppRouter);
+const CustomDrawerContentComponent = props => {
+  const filteredItems = props.items.filter(
+    item => item.key !== 'SingleBeerScreen'
+  );
+  const newProps = Object.assign({}, props, {
+    ...props,
+    items: Array.from(filteredItems)
+  });
+
+  return (
+    <ScrollView>
+      <SafeAreaView
+        style={styles.container}
+        forceInset={{ top: 'always', horizontal: 'never' }}
+      >
+        <DrawerItems {...newProps} />
+      </SafeAreaView>
+    </ScrollView>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  }
+});
+
+export default createAppContainer(AppRouter, {
+  contentOptions: props => <CustomDrawerContentComponent {...props} />
+});
