@@ -11,16 +11,6 @@ import Divider from '../components/Divider';
 import HeaderBack from '../navigation/HeaderBack';
 
 export default class SingleBeerScreen extends Component {
-  static navigationOptions = ({ navigation }) => ({
-    title: navigation.getParam('name', 'single beer screen'),
-    drawerLabel: null
-  });
-
-  _changeTitle = titleText => {
-    const { setParams } = this.props.navigation;
-    setParams({ title: titleText });
-  };
-
   _renderIngredientItems = ingredientItems => {
     const items = [];
 
