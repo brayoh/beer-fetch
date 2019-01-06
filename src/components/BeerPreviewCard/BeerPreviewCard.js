@@ -9,19 +9,19 @@ import { colors } from '../../config/theme';
 import Title from '../Text/Title';
 import ContainedImage from '../Image/ContainedImage';
 
-const CardContainer = glamorous.view((props, theme) => ({
+const CardContainer = glamorous.view(() => ({
   height: 160,
   width: '85%',
   left: '7.5%',
   justifyContent: 'space-around'
 }));
 
-const CardImageContainer = glamorous.view((props, theme) => ({
+const CardImageContainer = glamorous.view(() => ({
   flex: 1,
   alignItems: 'stretch'
 }));
 
-const BeerNameContainer = glamorous.view((props, theme) => ({
+const BeerNameContainer = glamorous.view(() => ({
   height: '30%',
   backgroundColor: colors.deep_sky_blue,
   justifyContent: 'center'

@@ -8,7 +8,7 @@ import Title from '../Title';
 // app theme colors
 import { colors } from '../../../config/theme';
 
-const TitleContainer = glamorous.view((props, theme) => ({
+const TitleContainer = glamorous.view(() => ({
   width: '100%',
   padding: 15,
   backgroundColor: colors.veryLightPink,

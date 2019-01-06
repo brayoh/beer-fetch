@@ -5,14 +5,14 @@ import PropTypes from 'prop-types';
 // app theme colors
 import { colors } from '../../config/theme';
 
-const CardContainer = glamorous.view((props, theme) => ({
+const CardContainer = glamorous.view(() => ({
   position: 'relative',
   width: '20%',
   backgroundColor: colors.white,
   elevation: 2
 }));
 
-const TextBody = glamorous.text((props, theme) => ({
+const TextBody = glamorous.text(() => ({
   position: 'relative',
   fontSize: 14,
   color: colors.black,
@@ -23,14 +23,14 @@ const TextBody = glamorous.text((props, theme) => ({
   justifyContent: 'center'
 }));
 
-const FooterContainer = glamorous.view((props, theme) => ({
+const FooterContainer = glamorous.view(() => ({
   width: '100%',
   padding: 5,
   backgroundColor: colors.veryLightPink,
   alignItems: 'center'
 }));
 
-const TextFooter = glamorous.text((props, theme) => ({
+const TextFooter = glamorous.text(() => ({
   fontSize: 13,
   textAlign: 'center',
   color: colors.black

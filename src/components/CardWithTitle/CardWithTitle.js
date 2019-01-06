@@ -9,7 +9,7 @@ import WrappedTitle from '../Text/WrappedTitle';
 // app theme colors
 import { colors } from '../../config/theme';
 
-const CardContainer = glamorous.view((props, theme) => ({
+const CardContainer = glamorous.view(() => ({
   position: 'relative',
   width: '85%',
   left: '7.5%',
@@ -18,7 +18,7 @@ const CardContainer = glamorous.view((props, theme) => ({
   elevation: 2
 }));
 
-const TextBody = glamorous.view((props, theme) => ({
+const TextBody = glamorous.view(() => ({
   position: 'relative',
   fontSize: 12,
   color: colors.black,
