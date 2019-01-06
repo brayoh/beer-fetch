@@ -2,9 +2,6 @@
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/d9e69ca9107c45b0a69a73e0c234c0e7)](https://app.codacy.com/app/brayoh/beer_fetch?utm_source=github.com&utm_medium=referral&utm_content=brayoh/beer_fetch&utm_campaign=Badge_Grade_Dashboard)
 
-[![Build Status](https://travis-ci.org/brayoh/bucket-list-api.svg?branch=develop)](https://travis-ci.org/brayoh/bucket-list-api)
-[![Coverage Status](https://coveralls.io/repos/github/brayoh/bucket-list-api/badge.svg?branch=develop)](https://coveralls.io/github/brayoh/bucket-list-api?branch=develop)
-
 # Awesome Bucketlist API
 
 A react native android application for consuming punk API
