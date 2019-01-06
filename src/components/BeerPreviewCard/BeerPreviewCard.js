@@ -1,5 +1,6 @@
 import React from 'react';
 import glamorous from 'glamorous-native';
+import PropTypes from 'prop-types';
 
 // app theme colors
 import { colors } from '../../config/theme';
@@ -39,6 +40,11 @@ const BeerPreviewCard = ({ name, imageUrl }) => {
       </BeerNameContainer>
     </CardContainer>
   );
+};
+
+BeerPreviewCard.propTypes = {
+  name: PropTypes.string.isRequired,
+  imageUrl: PropTypes.string.isRequired
 };
 
 export default BeerPreviewCard;

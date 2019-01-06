@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Item, Input, Icon, Form, Picker } from 'native-base';
+import PropTypes from 'prop-types';
 
 // app theme colors
 import { colors } from '../../config/theme';
 
-export default class SearchBar extends Component {
+class SearchBar extends Component {
   render() {
     return (
       <Item
@@ -47,3 +48,11 @@ export default class SearchBar extends Component {
     );
   }
 }
+
+SearchBar.propTypes = {
+  handleOnChangeText: PropTypes.func.isRequired,
+  handleOnValueChange: PropTypes.func.isRequired,
+  selected: PropTypes.string.isRequired
+};
+
+export default SearchBar;

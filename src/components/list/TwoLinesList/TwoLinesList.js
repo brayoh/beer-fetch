@@ -1,5 +1,8 @@
 import React, { Fragment } from 'react';
 import { Text } from 'react-native';
+import PropTypes from 'prop-types';
+
+// presentational components
 import Title from '../../Text/Title';
 
 const TwoLinesList = ({ title, description }) => {
@@ -17,6 +20,11 @@ const TwoLinesList = ({ title, description }) => {
       </Text>
     </Fragment>
   );
+};
+
+TwoLinesList.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired
 };
 
 export default TwoLinesList;

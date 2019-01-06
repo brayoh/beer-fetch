@@ -1,6 +1,6 @@
 import React from 'react';
-import { Text } from 'react-native';
 import glamorous from 'glamorous-native';
+import PropTypes from 'prop-types';
 
 // title component
 import Title from '../Title';
@@ -23,6 +23,10 @@ const WrappedTitle = props => {
       </Title>
     </TitleContainer>
   );
+};
+
+WrappedTitle.propTypes = {
+  children: PropTypes.element.isRequired
 };
 
 export default WrappedTitle;

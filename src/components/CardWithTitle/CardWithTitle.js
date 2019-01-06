@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import glamorous from 'glamorous-native';
+import PropTypes from 'prop-types';
 
 // title component
 import WrappedTitle from '../Text/WrappedTitle';
@@ -41,6 +42,12 @@ const CardWithTitle = props => {
       <TextBody>{renderContent}</TextBody>
     </CardContainer>
   );
+};
+
+CardWithTitle.propTypes = {
+  title: PropTypes.string.isRequired,
+  contentContainer: PropTypes.string.isRequired, // wrapper container
+  content: PropTypes.node.isRequired
 };
 
 export default CardWithTitle;

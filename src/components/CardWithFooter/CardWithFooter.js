@@ -1,5 +1,6 @@
 import React from 'react';
 import glamorous from 'glamorous-native';
+import PropTypes from 'prop-types';
 
 // app theme colors
 import { colors } from '../../config/theme';
@@ -44,6 +45,11 @@ const CardWithFooter = ({ bodyContent, footerContent }) => {
       </FooterContainer>
     </CardContainer>
   );
+};
+
+CardWithFooter.propTypes = {
+  bodyContent: PropTypes.string.isRequired,
+  footerContent: PropTypes.string.isRequired
 };
 
 export default CardWithFooter;

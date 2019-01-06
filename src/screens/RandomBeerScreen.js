@@ -202,10 +202,19 @@ export default class RandomBeerScreen extends Component {
                 flexDirection: 'row'
               }}
             >
-              <CardWithFooter bodyContent="ABV" footerContent={abv} />
-              <CardWithFooter bodyContent="SRM" footerContent={srm} />
-              <CardWithFooter bodyContent="PH" footerContent={ph} />
-              <CardWithFooter bodyContent="IBU" footerContent={ibu} />
+              <CardWithFooter
+                bodyContent="ABV"
+                footerContent={abv.toString()}
+              />
+              <CardWithFooter
+                bodyContent="SRM"
+                footerContent={srm.toString()}
+              />
+              <CardWithFooter bodyContent="PH" footerContent={ph.toString()} />
+              <CardWithFooter
+                bodyContent="IBU"
+                footerContent={ibu.toString()}
+              />
             </View>
             <View style={{ marginTop: 50 }}>
               <CardWithTitle
