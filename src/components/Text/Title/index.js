@@ -1,5 +1,6 @@
 import glamorous from 'glamorous-native';
 import { colors } from '../../../config/theme';
+import PropTypes from 'prop-types';
 
 const Title = glamorous.text((props, theme) => ({
   fontFamily: 'robotoRegular',
@@ -9,5 +10,11 @@ const Title = glamorous.text((props, theme) => ({
   textAlign: props.align || 'left',
   alignSelf: props.alignSelf || 'center'
 }));
+
+Title.propTypes = {
+  color: PropTypes.string,
+  align: PropTypes.string,
+  alignSelf: PropTypes.string
+};
 
 export default Title;

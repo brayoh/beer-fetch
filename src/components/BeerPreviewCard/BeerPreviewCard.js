@@ -1,5 +1,6 @@
 import React from 'react';
 import glamorous from 'glamorous-native';
+import PropTypes from 'prop-types';
 
 // app theme colors
 import { colors } from '../../config/theme';
@@ -8,19 +9,19 @@ import { colors } from '../../config/theme';
 import Title from '../Text/Title';
 import ContainedImage from '../Image/ContainedImage';
 
-const CardContainer = glamorous.view((props, theme) => ({
+const CardContainer = glamorous.view(() => ({
   height: 160,
   width: '85%',
   left: '7.5%',
   justifyContent: 'space-around'
 }));
 
-const CardImageContainer = glamorous.view((props, theme) => ({
+const CardImageContainer = glamorous.view(() => ({
   flex: 1,
   alignItems: 'stretch'
 }));
 
-const BeerNameContainer = glamorous.view((props, theme) => ({
+const BeerNameContainer = glamorous.view(() => ({
   height: '30%',
   backgroundColor: colors.deep_sky_blue,
   justifyContent: 'center'
@@ -39,6 +40,11 @@ const BeerPreviewCard = ({ name, imageUrl }) => {
       </BeerNameContainer>
     </CardContainer>
   );
+};
+
+BeerPreviewCard.propTypes = {
+  name: PropTypes.string.isRequired,
+  imageUrl: PropTypes.string.isRequired
 };
 
 export default BeerPreviewCard;

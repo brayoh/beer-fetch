@@ -1,6 +1,6 @@
 import React from 'react';
-import { Text } from 'react-native';
 import glamorous from 'glamorous-native';
+import PropTypes from 'prop-types';
 
 // title component
 import Title from '../Title';
@@ -8,7 +8,7 @@ import Title from '../Title';
 // app theme colors
 import { colors } from '../../../config/theme';
 
-const TitleContainer = glamorous.view((props, theme) => ({
+const TitleContainer = glamorous.view(() => ({
   width: '100%',
   padding: 15,
   backgroundColor: colors.veryLightPink,
@@ -23,6 +23,10 @@ const WrappedTitle = props => {
       </Title>
     </TitleContainer>
   );
+};
+
+WrappedTitle.propTypes = {
+  children: PropTypes.element.isRequired
 };
 
 export default WrappedTitle;

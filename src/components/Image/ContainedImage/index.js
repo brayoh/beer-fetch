@@ -1,12 +1,12 @@
 import React from 'react';
 import glamorous from 'glamorous-native';
 
-const CardImageContainer = glamorous.view((props, theme) => ({
+const CardImageContainer = glamorous.view(() => ({
   flex: 1,
   alignItems: 'stretch'
 }));
 
-const StyledImage = glamorous.image((props, theme) => ({
+const StyledImage = glamorous.image(() => ({
   position: 'absolute',
   top: 0,
   left: 0,

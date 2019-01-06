@@ -10,6 +10,7 @@
     "axios": "^0.18.0",
     "glamorous-native": "^1.4.0",
     "native-base": "^2.8.1",
+    "prop-types": "^15.6.2",
     "react": "16.6.1",
     "react-native": "0.57.7",
     "react-native-easy-grid": "^0.2.0",
